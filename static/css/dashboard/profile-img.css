@@ -1,0 +1,86 @@
+.bg-color-img {
+    max-width: 230px;
+    height: 230px;
+    background-color: #3a4d56;
+    border:2px solid #3a4d56;
+    padding-left: 0px;
+    padding-top: 0px;
+    border-radius: 100%;
+    border-width: 5px;
+    text-align: center;    
+  }
+  
+  
+  #targetOuter{	
+    position:relative;
+    text-align: center;
+    background-color: #bdd4de !important;
+    margin: 0px auto;
+    width: 221px;
+    height: 221px;
+    border-radius: 100%;
+  }
+  
+  
+  
+  .btn-submit-img {
+    background-color: #3a4d56;
+    border-radius: 4px;
+     margin-top: 10px;
+    border: #3a4d56 1px solid;
+    color: #FFFFFF;
+    width: 100px;
+    cursor:pointer;
+    padding: 3px;
+  }
+  
+  
+  
+  .inputFile {
+    padding: 5px 0px;
+    margin-top:8px;	
+    background-color: fff;
+    width: 90px;
+    height: 65px;
+    margin-top: 16px;
+    margin-left: 4px;	
+    overflow: hidden;
+    opacity: 0;	
+    cursor:pointer;
+  }
+  
+  
+  
+  .icon-choose-image {
+    position: absolute;
+    opacity: 0.5;
+    top: 50%;
+    left: 50%;
+    margin-top: -48px;
+    margin-left: -48px;
+    width: 96px;
+    height: 96px;
+  }
+  
+  .upload-preview {
+      border-radius:100%;
+      margin-top: 4px;
+      margin-left: 1px;
+      border: 5px solid #3a4d56 !important;
+}
+  
+  #body-overlay {background-color: rgba(0, 0, 0, 0.6);z-index: 999;position: absolute;left: 0;top: 0;width: 100%;height: 100%;display: none;}
+  
+  #body-overlay div {position:absolute;left:50%;top:50%;margin-top:-32px;margin-left:-32px;}
+
+  #targetMessage {
+    margin-top:10px;
+    margin-bottom:0px;
+     padding-bottom:0px;
+    }
+  
+    .card-alta {
+       padding-bottom:100px;
+      }
+  
+  

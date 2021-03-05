@@ -1,0 +1,156 @@
+
+{% set titulo= 'Inicio - Valhalla Series' %}
+{% include "layout/header.html" %} 
+
+  
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<style type="text/css">
+/* body {
+    background: url("{{url_for('static', filename='img/guest/home/background.jpg')}}")repeat center center fixed;    
+    background-size: cover;
+} */
+.center-div-link{ 
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+</style>
+
+{% include "layout/cssPublic.html" %} 
+<!--Intro Section-->
+<section class="view intro-section">
+    <div class="mask pattern-0 flex-center" style="
+    top: 93px;"></div>
+        <div class="full-bg-img">
+            
+            <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+                <!-- Content -->
+                <div class="container px-md-3 px-sm-0">
+                    <!--Grid row-->
+                    <div class="row wow fadeIn smooth-scroll mx-4">
+                        <!--Grid column-->
+                        <div class="col-md-12 mb-4 white-text text-center wow fadeIn">
+                            <h3 class="display-3 font-weight-bold white-text mb-0 pt-md-5 pt-5">Valhalla Series</h3>
+                            <hr class="hr-light my-4 w-75">
+                            <h4 class="subtext-header mt-2 mb-4">Una serie de carreras sorprendentes</h4>
+                            <a href="#eventos" class="btn btn-rounded btn-outline-white wow fadeIn" data-offset="100" data-wow-delay="0.2s">
+                                <i class="fas fa-running"></i> Ver Eventos
+                            </a>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!-- Content -->
+            </div>
+            
+        </div>
+</section>
+<section id="eventos" class="text-center py-5">
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold mb-5">Eventos</h2>
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4">
+
+                <!-- Card -->
+                <div class="card card-image"
+                style='background-image: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")'>   
+
+                <!-- Content -->
+                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div>
+                            <h5 class="white-text"><i class="fas fa-running"></i> Entreno - Competencia</h5>
+                            <h3 class="card-title pt-2"><strong>12 de marzo del 2021</strong></h3>
+                            <p>Entreno tipo competencia que busca recaudar fondos para la señora Pepita Perez y su familia, habitantes de la zona rural de la buitrera, la cual, por motivos de la pandemia se encuentra en estado de vulnerabilidad.</p>
+                            <a href="/entreno" class="btn border border-light rounded hoverable hoverable waves-light"><i class="fas fa-running left"></i> Me quiero registrar</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card -->
+                <!-- Card Narrower -->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <!-- Card Narrower -->
+                <div class="card card-image"
+                style='background-image: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")'>   
+
+                <!-- Content -->
+                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div>
+                            <h5 class="white-text"><i class="fas fa-mountain"></i> Km Vertical</h5>
+                            <h3 class="card-title pt-2"><strong>Próximamente</strong></h3>
+                            <p>Sabor a sangre en la garganta, táctica, pulso por las nubes y tensión desde el primer hasta el último metro es lo que se siente correr un Kilómetro Vertical, y el <strong>Valhalla Series – Kilometro Vertical</strong> no será la excepción con una elevación máxima de 2.754 msnm.</p>
+                            <a href="/kmvertical" class="btn border border-light rounded hoverable hoverable waves-light"><i class="fas fa-mountain left"></i> Me quiero registrar</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card Narrower -->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <!-- Card Narrower -->
+                <div class="card card-image"
+                style='background-image: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")'>   
+
+                <!-- Content -->
+                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div>
+                            <h5 class="white-text"><i class="fas fa-flag"></i> Carrera</h5>
+                            <h3 class="card-title pt-2"><strong>Próximamente</strong></h3>
+                            <p>Abrir los sentidos, escuchar a nuestro cuerpo y nuestras sensaciones, sentirnos bien y apreciar el entorno en el que corremos. Un montón de sentimientos distintos que te permitirán disfrutar de esta carrera en sus diferentes distancias.</p>
+                            <a href="/carrera" class="btn border border-light rounded hoverable waves-light"><i class="fas fa-flag left"></i> Me quiero registrar</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card Narrower -->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </div>
+    <!-- Container -->
+
+</section>
+<!--Section: articles-->
+
+{% include "layout/js.html" %}
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript">
+
+function validar(){
+  if($("#login_form").validate({
+    lang: 'es',
+    errorPlacement: function(error, element){
+      $(element).parent().after(error);
+		}})){
+    $("#login_form").submit();
+  }
+  }
+
+</script>
+
+{% include "layout/footer.html" %}

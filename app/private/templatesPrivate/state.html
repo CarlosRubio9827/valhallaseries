@@ -1,0 +1,301 @@
+{% set titulo ='Bienvenido - Piedra del Canadá' %}
+{% include "layout/header.html" %}
+
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<style type="text/css">
+body {
+    background: url("{{url_for('static', filename='img/dashboard/state/background.jpg')}}")repeat center center fixed;
+    background-size: cover;
+}
+ 
+
+</style> 
+{% include "layout/css.html" %} 
+<!-- <?php
+require_once("../layout/css.php");
+$db = new PDO_Connect;
+$db->connect();
+$usuario = $db->getRow("SELECT * FROM usuarios WHERE idusuarios = ?",array($user->idusuarios));
+if($usuario){
+    $_SESSION['usuario'] = json_encode($usuario);   
+    $user = $usuario;
+}else{
+    header('Location: ../auth/login.php');
+}
+$tz  = new DateTimeZone('America/Bogota');
+$date_time = new DateTime($user->fechaNacimiento, $tz);
+$edad = $date_time->diff(new DateTime('now', $tz))->y; 
+?> -->
+<!--Intro Section-->
+<section class="section pt-4">
+        <div class="mask pattern-0 flex-center"></div>
+                <div class="full-bg-img">
+                    <div class="container flex-center">
+                        <div class="d-flex align-items-center content-height">
+                            <div class="row flex-center pt-5 mt-3">
+                     
+                                <div class="col-12 mb-5 content-div">
+                                    <!--Form-->
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <!--Header-->
+                                            <div class="text-center">
+                                                <h4 class="white-text"><i class="fas fa-running mr-2"></i>
+                                                
+                                                {% if usuario[9] == "Femenino" %}
+                                                
+                                                Bienvenida
+
+                                                {% else %}
+                                                Bienvenido
+                                                {% endif %}
+
+                                                {{usuario[1]}} {{usuario[2]}}
+                                                    
+                                            </h4>
+                                                <hr class="hr-light">
+
+                                                
+                                                {% if usuario[19]=="Pendiente de Pago" %}
+                                                 <h5 class="white-text">¿Qué paso debo seguir para confirmar mi cupo en <strong> Piedra del Canadá: El órigen?</strong></h5>
+
+                                                <h6 class="white-text">Terminar su inscripción a Piedra Del Canadá: El órigen es muy fácil, y cuentas con las siguientes opciones:</h6>
+                                                </div>
+                                                <div class="text-left">
+                                                <ul>
+                                                    <li class="white-text">
+                                                        <h6 align="left"><strong>Tranferencia Bancaria</strong></h6>
+                                                        <ul>
+                                                            <li type="circle">
+                                                                <p style="font-size:14px;" align="left">Consigne o transfiera la suma de <span class="resaltar">{{ "${:,.0f}".format(usuario[3][2]) }} COP</span>
+                                                            (valor de <span class="resaltar">{{usuario[3][1]}}</span>)</strong> a la Cuenta de ahorros <span class="resaltar">Bancolombia</span> #<span class="resaltar">864-196988-59</span>, a nombre de <span class="resaltar">Nelson Eduardo Martinez</span>. CC <span class="resaltar">6407506</span>.</p>
+                                                            </li>
+
+                                                            <li type="circle">
+                                                                <p  style="font-size:14px;"align="left">Por último envia un correo a <span class="resaltar">info@rupinsi.com</span> con el comprobante de pago para 
+                                                            confirmar tu transacción y activar tu inscripción.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="white-text">
+                                                        <h6 align="left" > <strong>Pago Presencial</strong></h6>
+                                                        <ul>
+                                                            <li><p style="font-size:14px;"  align="left">Comunicate al número de celular <span class="resaltar">+57 310 6899013</span> y acuerda un encuentro para terminar tu proceso de inscripción.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                
+                                                    {% else %}
+                                                    <h4 class="white-text"><i class="fas fa-flag-checkered mr-2"></i>
+                                                    ¡Felicidades, estás inscrito en la Piedra Del Canadá: El órigen!
+                                                </h4>
+                                             
+                                                    <h6 class="white-text"><span class="resaltar">Pronto te daremos más información acerca de la carrera</span></strong></h6>
+                                                    
+
+                                                {% endif %}
+                                                </div>
+                                       
+                                        </div>
+                                    </div>
+                                    <!--/.Form-->
+                                    
+                                </div>
+
+        
+
+                                                   <!--Datos personales--> 
+                                
+                                <div class="col-12 mb-5 content-div">
+                                    <!--Form-->
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <!--Header-->
+                                            <div class="text-center">
+                                                <h4 class="white-text"><i class="fas fa-user-circle mr-2"></i>
+                                                Tus Datos Personales
+                                            </h4>
+                                                <!--hr class="hr-light"-->
+                                                 
+                                                <div style=" text-align: center; background-color: rgba(255,255,255,0)!important;">
+                                                    <table  class="table table-sm table-hover" >
+                                                            <thead>
+                                                                
+                                                            </thead>
+                                                            <tbody style=" text-align: left;background-color: rgba(0,0,0,0.05)!important;">
+                                                            <tr class="hoverable tr-theme">
+                                                                <th scope="row"><strong>Estado Inscripción </strong></th>
+                                                                <td>
+                                                                
+                                                        {% if usuario[19] == "registrado" %}
+                                                                
+                                                                  <h4><span class="badge badge-warning hoverable">
+                                                                  <i class="fas fa-hand-holding-usd mr-1"></i> Pendiente de Pago
+                                                                </span></h4>
+                                                                
+
+                                                        {% else %}
+                                                      <h4><span class="badge badge-success hoverable">
+                                                      <i class="fas fa-flag-checkered mr-1"></i> Inscrito
+                                                                </span></h4>
+                                                            
+                                                          
+                                                        {% endif %}
+                                                                </td>
+                                                                </tr>    
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Distancia</strong></th>
+                                                                    <td>{{usuario[3][1]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Valor</strong></th>
+                                                                    <td>{{ "${:,.0f}".format(usuario[3][2]) }} COP</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Nombre Completo</strong></th>
+                                                                    <td>{{ usuario[1]|upper }} {{usuario[2]|upper}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Fecha de Nacimiento</strong></th>
+                                                                    <td>{{usuario[8]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Sexo</strong></th>
+                                                                    <td>{{ usuario[9]|upper }}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Tipo Sangre</strong></th>
+                                                                    <td>{{ usuario[14]|upper }}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Categoría</strong></th>
+                                                                    <td>{{ usuario[4]|upper }}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Equipo</strong></th>
+                                                                    <td>{{usuario[21]|upper}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Correo Electrónico</strong></th>
+                                                                    <td>{{usuario[5]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Doc. Identidad</strong></th>
+                                                                    <td>{{usuario[6]}} - {{usuario[7]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Número Teléfono</strong></th>
+                                                                    <td>{{usuario[10]}}</td>
+                                                                </tr>
+                                                               
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Fecha de Registro</strong></th>
+                                                                    <td>{{usuario[22]}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Talla Camisa</strong></th>
+                                                                    <td>
+                                                                        <h5><span class="badge badge-primary hoverable">{{usuario[16] | upper}}</span></h5>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Ciudad</strong></th>
+                                                                    <td>{{usuario[13]|upper}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Departamento</strong></th>
+                                                                    <td>{{usuario[12]|upper}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>País</strong></th>
+                                                                    <td>{{usuario[11]|upper}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Entidad de Salud</strong></th>
+                                                                    <td>{{usuario[15]|upper}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Nombre Contacto Emergencia</strong></th>
+                                                                    <td>
+                                                                        {% if usuario[17] == "" %}
+                                                                        No Tiene
+                                                                        {% else %}
+                                                                        {{usuario[17]|upper}} 
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Número Contacto Emergencia</strong></th>
+                                                                    <td>
+                                                                        {% if usuario[18] == "" %}
+                                                                        No Tiene
+                                                                        {% else %}
+                                                                        {{usuario[18]|upper}} 
+                                                                        {% endif %} 
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <!--
+                                                        <a href="../../controllers/exit.php" class="btn btn-theme btn-outline-white hoverable waves-light waves-effect"><i class="fas fa-door-closed mr-2"></i>Regresar a la Página Principal</a>
+                                                        -->
+                                                        
+                                                </div>
+                                                
+                                                </div>
+   
+                                        </div>
+                                    </div>
+                                    <!--/.Form-->
+                                  
+                                </div>
+
+                                <div class="col-12 mb-5 content-div">
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <h4 class="white-text">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </h4>
+                                                <hr class="hr-light">
+                                                <h5 class="white-text">
+                                                    Por favor verififa que tus datos sean correctos, de lo contrario ponte en contacto con los organizadores
+                                                de la carrera para corregirlos.
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Fin datos Persoanles-->
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% include "layout/js.html" %}
+
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript">
+
+function validar(){
+  if($("#login_form").validate({
+    lang: 'es',
+    errorPlacement: function(error, element){
+      $(element).parent().after(error);
+		}})){
+    $("#login_form").submit();
+  }
+  }
+
+</script>
+
+{% include "layout/footer.html" %}
+

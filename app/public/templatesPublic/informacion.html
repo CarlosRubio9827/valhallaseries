@@ -1,0 +1,134 @@
+{% set titulo= 'Información - Natural Series' %}
+{% include "layout/header.html" %} 
+
+  
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<style type="text/css">
+/* body {
+    background: url("{{url_for('static', filename='img/guest/home/background.jpg')}}")repeat center center fixed;    
+    background-size: cover;
+} */
+.center-div-link{ 
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+</style>
+
+{% include "layout/cssPublic.html" %} 
+<!--Intro Section-->
+<main>
+
+    
+    <!--Section: about-->
+    <section id="informacion" class="pt-4" style="
+        padding-top: 6.5rem!important;
+    ">
+
+        <!-- Container -->
+        <div class="container container-informacion">
+
+            
+
+
+            <!-- Section heading -->
+            <h2 class="h1-responsive font-weight-bold text-center mb-5">¿Qué es Valhalla Series 🔥?</h2>
+            <!-- Section description -->
+            <p class="lead grey-text w-responsive mx-auto mb-5"><strong>Valhalla Series </strong>es un conjunto de carreras de <strong>Trail Running 🏃‍♂️🏃‍♀️</strong> , las cuales van a ser llevadas a cabo en el corregimiento de la <strong>Buitrera Palmira ⛰️</strong>, con las cuales se busca incentivar la práctica de este deporte para conseguir nuevos retos, salud y un buen estado físico. Además, queremos que, mediante las actividades, los participantes puedan divertirse compartiendo la misma afición.
+            
+                </p>
+                <p class="lead grey-text w-responsive mx-auto mb-5">
+                    La idea de crear <strong>Valhalla Series</strong> surge de la ilusión de emprender un proyecto relacionado con el deporte y del compromiso de ofrecer a sus participantes entrenamientos y competencias de calidad.
+                </p>
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-lg-5 text-center text-lg-left">
+                    <img src="{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}" alt="Valhalla Series" class="img-fluid">
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-lg-7">
+
+                    <!-- Grid row -->
+                    <div class="row mb-3">
+
+                        <!-- Grid column -->
+                        <div class="col-1">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-xl-10 col-md-11 col-10">
+                            <h5 class="font-weight-bold mb-3">Entreno</h5>
+                            <p class="grey-text">Entreno tipo competencia que busca recaudar fondos para la señora Pepita Perez y su familia, habitantes de la zona rural de la buitrera, la cual, por motivos de la pandemia se encuentra en estado de vulnerabilidad.</p>
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                    <!-- Grid row -->
+                    <div class="row mb-3">
+
+                        <!-- Grid column -->
+                        <div class="col-1">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-xl-10 col-md-11 col-10">
+                            <h5 class="font-weight-bold mb-3">Km Vertical</h5>
+                            <p class="grey-text">Sabor a sangre en la garganta, táctica, pulso por las nubes y tensión desde el primer hasta el último metro es lo que se siente correr un Kilómetro Vertical, y el Valhalla Series – Kilometro Vertical no será la excepción con una elevación máxima de 2.754 msnm. </p>
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-1">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-xl-10 col-md-11 col-10">
+                            <h5 class="font-weight-bold mb-3">Carrera</h5>
+                            <p class="grey-text mb-0">Más que correr en la naturaleza, también interviene el espíritu del sendero. Abrir los sentidos, escuchar a nuestro cuerpo y nuestras sensaciones, sentirnos bien y apreciar el entorno en el que corremos. Un montón de sentimientos distintos que te permitirán practicar deporte en armonía con el medio natural.</p>
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!--Grid row-->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Container -->
+
+    </section>
+    <!--Section: about-->
+
+<!--Section: articles-->
+
+{% include "layout/js.html" %}
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript">
+
+</script>
+
+{% include "layout/footer.html" %}

@@ -1,0 +1,372 @@
+{% set titulo ='Registros - Valhalla Series - KmVertical' %}
+{% include "layout/header.html" %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/addons/datatables.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/addons/bt4-datatables.min.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/addons/bt4-buttons-datatables.min.css')}}" type="text/css">
+   
+<style type="text/css">
+body {
+    background: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")repeat-y center center fixed;
+    /* background-size: cover; */
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+</style>
+
+
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#" >
+        <strong> <img src="{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}" alt="" class="logo-img">Valhalla Series</strong>
+      </a>
+  
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto"></ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+                 
+       
+           <li class="nav-item dropdown active">
+                    <a class="nav-link border border-light rounded dropdown-toggle hoverable waves-light" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-running mr-2"></i>{{usuario[1]}}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right menu-sup" aria-labelledby="navbarDropdownMenuLink">
+
+                      <a class="dropdown-item hoverable waves-effect" onclick="salir();">
+                        <form class="nav_formu" id="logout-form" method="POST" action="/loginAdmin/logout">
+                          
+                          <input type="hidden" required value="logout" name="method"></form>
+                        <i class="fas fa-door-open mr-2"></i> Cerrar sesión
+                      </a>
+                    </div>
+                   
+                </li>
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+
+<!--Intro Section-->
+<section class="section pt-4 white-text"> 
+        <div class="mask pattern-0 flex-center"></div>
+            <div class="full-bg-img">
+                <div class="container flex-center white-text">
+                    <div class="d-flex align-items-center content-div">
+                        <div class="row flex-center pt-5 mt-3">
+                            <div class="col-12 mb-12 col-xs-12 content-div white-text">
+                                    <!--Form-->
+                                <div class="card z-depth-5 hoverable">
+                                    <div class="card-body">
+                                            <!--Header-->
+                                            <div style=" text-align: center; background-color: rgba(255,255,255,0)!important;">
+                                              
+                                                  
+                                                
+                                                    <table id="datatable" class="table table-hover " >
+                                                      <div class="row">
+                                                        <div class="col-md-3 col-sm-3 col-3 col-xs-3">
+                                                          <a href="/loginAdmin" class="nav-link border border-light rounded hoverable waves-light white-text"><i class="fas fa-arrow-left mr-2"></i>Regresar</a>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-3 col-xs-3 mx-auto">
+                                                          <!--Blue select-->
+                                                          <select id="myselect" class="browser-default custom-select">
+                                                            <option selected>Exportar Datos</option>
+                                                            <option value="excel">Excel</option>
+                                                            <option value="pdf">PDF</option>
+                                                          </select>
+                                                          <!--/Blue select-->
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-3 col-xs-3">
+                                                          <div class="row">
+                                                            <h6 class="mr-2">Disponible </h6>
+                                                            <label class="switch">
+                                                              <form id="diponibilidadEvento" method="POST" action="/loginAdmin/cambiarEstEvento" accept-charset="UTF-8">
+                                                                <input id="disponible" {% if disponible %} checked  {% else %}
+
+                                                                {% endif %} type="checkbox">
+                                                              </form>
+                                                              <span class="slider round"></span>
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                            <thead >
+                                                            <tr>
+                                                                <th>Núm Documento</th>
+                                                                <th>Nombre Completo</th>
+                                                                <th>Correo Elec.</th>
+                                                                <th>Estado Insc</th>
+                                                                <th>Estado Kit</th>
+                                                                <th>Acciones</th>               
+                                                            </tr>
+                                                            </thead>
+                                                           
+                                                            <tbody style=" text-align: left;background-color: rgba(0,0,0,0.05)!important;">
+                                                            
+                                                            {% for usuario in usuarios %}
+                                                                <tr class="hoverable tr-theme">   
+                                                                <td>{{usuario.7}}</td>
+                                                                <td>{{usuario.1}} {{usuario.2}}</td>
+                                                                <td>{{usuario.5}}</td>
+                                                                <td>{{usuario.17}}</td>
+                                                                <td>{{usuario.18}}</td>
+                                                                
+                                                                <td>
+                                                                  
+                                                                    <a class="nav-link border border-light rounded hoverable waves-light" href="mostrarUsuario/{{usuario[0]}}"">
+                                                                        <i class="fas fa-eye mr-2 text-white"></i>
+                                                                    </a>
+                                                                  {% if usuario.17 == "Pendiente de Pago" %}
+                                                                  
+                                                                  
+                                                                  <a class="nav-link border border-light rounded hoverable waves-light"onclick="confirmarPago({{usuario[0]}});">
+                                                                      <form class="nav_formu" id="pago{{usuario[0]}}" method="POST" action="/confirmarPago/{{usuario[0]}}">
+                                                                          
+                                                                          </form>
+                                                                              <i class="fas fa-money-check-alt mr-2"></i>
+                                                                  </a>
+  
+                                                                          
+                                                                  {% elif usuario.18 == "Sin entregar" %}
+                                                                  
+                                                                  <a class="nav-link border border-light rounded hoverable waves-light"onclick="entregarKit({{usuario[0]}});">
+                                                                      <form class="nav_formu" id="entregarKit{{usuario[0]}}" method="POST" action="entregarKit/{{usuario[0]}}">
+                                                                         
+                                                                         </form>
+                                                                              <i class="fas fa-tshirt mr-2"></i>
+                                                                  </a>
+                                                                  
+                                                                 
+                                                                      
+                                                                  {% endif  %}
+                                                                </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>      
+                                                
+                                    </div>
+   
+                                </div>
+                            </div>
+                                    <!--/.Form-->
+                                  
+                        </div>
+
+                                <!--Fin datos Persoanles-->
+                              
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+{% include "layout/js.html" %}
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/datatables.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/buttons-datatables.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/bt4-datatables.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/bt4-buttons-datatables.min.js')}}"></script>
+
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#myselect').change(function () {
+    var value = $(this).val();
+    if (value == "pdf") {
+      window.open('/loginAdmin/kmvertical/exportarPdf', '_blank');  
+      $('#myselect').prop('selectedIndex',0);  
+
+    }else if(value="excel"){
+      window.open('/loginAdmin/kmvertical/exportarExcel', '_blank');
+      $('#myselect').prop('selectedIndex',0); 
+    }
+
+  });
+
+  $("#disponible").click(function(){
+
+    
+    if( !$(this).is(':checked') ){
+      $(this).prop("checked", true)
+      swal({
+        title: 'Confirmar Deshabilitación',
+        text: '¿Está seguro que desea deshabilitar las incripciones al entreno?',
+        type: 'question',
+        confirmButtonText: '<i class="fas fa-check"></i> Si',
+        cancelButtonText: '<i class="fas fa-times"></i> No',
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+        animation: false,
+        customClass: 'animated zoomIn',
+      }).then((result) => {
+        if (result.value) {
+          $("#diponibilidadEvento").attr("action", "/loginAdmin/cambiarEstEvento/entreno/desactivar")
+          console.log($("#diponibilidadEvento").attr("action"))
+          $("#diponibilidadEvento").submit();
+        }
+      })
+    } else{
+      $(this).prop("checked", false)
+      swal({
+        title: 'Confirmar Habilitacion',
+        text: '¿Está seguro que desea habilitar las incripciones al entreno?',
+        type: 'question',
+        confirmButtonText: '<i class="fas fa-check"></i> Si',
+        cancelButtonText: '<i class="fas fa-times"></i> No',
+        showCancelButton: true,
+        showCloseButton: true,
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+        animation: false,
+        customClass: 'animated zoomIn',
+      }).then((result) => {
+        if (result.value) {
+          $("#diponibilidadEvento").attr("action", "/loginAdmin/cambiarEstEvento/entreno/activar")
+          console.log($("#diponibilidadEvento").attr("action"))
+          $("#diponibilidadEvento").submit();
+        }
+      })
+    }
+  });
+    
+    $('#datatable').DataTable({
+      
+        language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }}
+    });
+
+});
+
+function confirmarPago(id){
+  
+  swal({
+  title: 'Confirmar Pago',
+  text: '¿Está seguro que se realizó el pago?',
+  type: 'question',
+  confirmButtonText: '<i class="fas fa-check"></i> Si',
+  cancelButtonText: '<i class="fas fa-times"></i> No',
+  showCancelButton: true,
+  showCloseButton: true,
+  confirmButtonClass: 'btn btn-success',
+  cancelButtonClass: 'btn btn-danger',
+  buttonsStyling: false,
+  animation: false,
+  customClass: 'animated zoomIn',
+}).then((result) => {
+  if (result.value) {
+    $("#pago"+id).submit();
+  }
+})
+}
+
+
+
+</script>
+
+{% include "layout/footer.html" %}

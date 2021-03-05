@@ -1,0 +1,67 @@
+table{
+  color:white !important;
+}
+thead{
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+tbody{
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.center-div-link{
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+html,
+      body,
+      header,
+      .view {
+        height: 100%;
+      }
+  
+@media (max-width: 740px) {
+  .full-height,
+  .full-height body,
+  .full-height header,
+  .full-height header .view {
+      height: 1040px;
+  }
+}
+
+/* Required height of parents of the Full Page Intro and Intro itself */
+html,
+body,
+.view {
+height: 100%; }
+
+.hm-gradient .full-bg-img {
+  background: -webkit-linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+  background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.4)), to(rgba(96, 0, 136, 0.4)));
+  background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.4), rgba(96, 0, 136, 0.4) 100%);
+}
+
+@media (max-width: 559px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 1000px;
+    }
+  }
+
+  @media (min-width: 560px) and (max-width: 740px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 700px;
+    }
+  }
+
+  @media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 600px;
+    }
+  }

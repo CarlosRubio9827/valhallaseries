@@ -1,0 +1,328 @@
+{% set titulo ='Registro Entreno - Valhalla Series' %}
+{% include "layout/header.html" %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/addons/select2.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/addons/bootstrap-material-datetimepicker.css')}}" type="text/css"/>
+
+<style type="text/css">
+body {
+    background: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")repeat-y center center;
+    /* background-size: cover; */
+}
+
+/* .card{ 
+    background-color: rgba(0, 0, 0, 0.5) !important;
+} */
+input,.md-form > small,.select2-selection__rendered{
+    color:  white !important;
+    }
+</style>
+{% include "layout/cssEntreno.html" %}
+<main>
+<section class="view intro-section">
+        <div class="mask pattern-0 flex-center" style="top: 93px;">
+        </div>
+<!-- Main Container -->
+<div class="container mt-5 pt-3" >
+   
+    <div class="row">
+        <!-- Content -->
+        <div class="col-md-6 mb-5">
+
+           <!-- Products Grid -->
+        <section class="section pt-4">
+        
+            <!-- Grid row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card z-depth-6 hoverable">
+                        <div class="card-body">
+
+                            {% if estadoEntreno == "Disponible" %}
+                            <!--Header-->
+                            <div class="text-center">
+                                <h3 class="white-text"><i class="fas fa-user-plus mr-2"></i>Registrarse en Entreno
+                                </h3>
+                                <hr class="hr-light">
+                            </div>
+                            <form id="register_form" method="POST" action="/entreno/registro" accept-charset="UTF-8">
+        
+                                <input type="hidden" required value="register" name="method">
+        
+                                <h6 class="white-text">Los campos marcados con (<span class="obligatorio">*</span>) son
+                                    obligatorios</h6>
+        
+                                <!-- Grid row -->
+                                <div class="form-row">
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <!-- Material input -->
+                                        <div class="md-form">
+                                            <i class="far fa-user-circle prefix white-text"></i>
+                                            <input type="text" required id="nombre" value="" name="nombre"
+                                                class="form-control validate">
+                                            <label for="nombre" data-error="Error" data-success="Correcto">Nombre(s) <span
+                                                    class="obligatorio">*</span></label>
+                                        </div>
+        
+                                    </div>
+                                    <!-- Grid column -->
+        
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <!-- Material input -->
+                                        <div class="md-form">
+                                            <i class="fas fa-user-circle prefix white-text"></i>
+                                            <input type="text" required id="apellido" value="" name="apellido"
+                                                class="form-control validate">
+                                            <label for="apellido" data-error="Error" data-success="Correcto">Apellidos <span
+                                                    class="obligatorio">*</span></label>
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+        
+                                </div>
+
+                                
+        
+                                <!-- Grid row -->
+                                <div class="form-row">
+        
+                                    <div class="col-md-6">
+                                        <!-- Material input -->
+                                        <div class="md-form">
+                                            <i class="far fa-envelope prefix white-text"></i>
+                                            <input type="email" required id="email" value="" name="email"
+                                                class="form-control validate" maxlength="100">
+                                            <label for="email" data-error="Error" data-success="Correcto">Correo Electrónico <span
+                                                    class="obligatorio">*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Material input -->
+                                        <div class="md-form">
+                                            <i class="prefix fas fa-mobile-alt white-text"></i>
+                                            <input type="number" required id="telefono" value="" name="telefono"
+                                                class="form-control validate">
+                                            <label for="telefono" data-error="Error" data-success="Correcto">Número de Celular <span
+                                                    class="obligatorio">*</span></label>
+                                        </div>
+        
+                                    </div>
+        
+                                </div>
+                                <!-- Grid row -->
+         
+
+                                <!-- Grid row -->
+                                <div class="form-row">
+                                    <!-- Grid column -->
+                                    <div class="col-md-12">
+                                        <blockquote class="blockquote bq-primary">
+                                            <a  data-toggle="modal" data-target="#basicExampleModal">
+                                                <p class="bq-title">Términos y Condiciones de participación en entreno nocturno y
+                                                    declaración de exoneración de responsabilidades y autorización. Normas de Bioseguridad.
+                                                </p>
+                                            </a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div id="modal-terminosCondiciones" class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title white-text" id="exampleModalLabel">Término y Condiciones - Valhalla Series - Entreno</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="white-text txt-condiciones" style="text-align: justify;">
+                                                            Con el diligenciamiento, firma de la presente declaración de aceptación, presencia en el evento y acepto los términos y condiciones de participación en la carrera, aquí descritos, acepto las condiciones de inscripción y declaro que reconozco que este evento es una actividad potencialmente peligrosa y me acojo a su reglamento de participación. Declaro que en forma libre y voluntaria he decidido participar en el entreno, que estoy en perfectas condiciones físicas y de salud, así como adecuadamente entrenado y preparado para participar en la misma. Aceptaré cualquier decisión de la organización del entreno sobre mi participación y entiendo que la inscripción al entreno me da el derecho a participar en la competencia, bajo ninguna circunstancia en cualquier evento en que NO pueda participar en la carrera, en las fechas establecidas por la organización, no podré exigir el reembolso del valor de la inscripción. Asumo todos los riesgos asociados con mi participación en esta carrera incluyendo pero no limitado a lesiones, caídas y demás accidentes, enfermedades generales, enfermedades de tipo cardiaco entre otras razones por el contacto con otros participantes, las condiciones del clima incluyendo temperatura, lluvias y humedad, tránsito vehicular, condiciones del recorrido, y en general todo riesgo, que declaro conocidos y valorados por mí, así mismo declaro que conozco la ruta y la información general y particular del entreno. Habiendo leído esta declaración, conociendo estos hechos y considerando que los acepto por el hecho de participar en el entreno, yo, en mi nombre y en el de cualquier persona que actúe en mi representación libero y eximo a los organizadores del entreno, aliados, patrocinadores y sus representantes y sucesores de todo reclamo o responsabilidad de cualquier tipo que surja de mi participación en este evento, incluso en circunstancias de caso fortuito o fuerza mayor, en razón a que la actividad durante el desarrollo del entreno se encontrara bajo mi control y ejecución exclusiva como participante, así mismo de cualquier responsabilidad por cualquier extravió, robo y/o hurto que pudiere sufrir. Declaro igualmente que acepto que los organizadores se reservan el derecho de cancelar o aplazar el evento por cualquier circunstancia. Autorizo a los organizadores, aliados y patrocinadores al uso de fotografías, películas, videos, grabaciones y cualquier otro medio de registro de este evento para cualquier uso legítimo sin compensación económica alguna. Adicionalmente, autorizo libre y voluntariamente el tratamiento de cualquier dato personal que suministre en desarrollo del evento por cualquier medio así como su incorporación en las bases de datos de los organizadores del entreno, aliados y Términos y condiciones para la participación en una carrera patrocinadores cuya finalidad sea en el envío de información referente al Entreno u otras carreras, envío de promociones y publicidad de cualquiera de los aquí mencionados mediante mensajes SMS a celulares, e-mails a las cuentas de correo electrónico registradas y contacto telefónico a los números de teléfono suministrados, sin costo alguno para mí. Así mismo faculto a los organizadores para enviar o transferir mis datos a cualquiera de las compañías que controlen o que actúen como sus controlantes o como controlantes de ellas o que estén bajo control común con alguna de ellas, además de sus aliados comerciales y estratégicos, dentro y fuera del territorio nacional, para que realicen los usos aquí autorizados; pudiendo en todo caso ejercer en cualquier momento las acciones a que tengo derecho para la protección de mis datos personales conforme lo establecido en la Ley 1581 de 2012 y en el Decreto 1377 de 2013. Acepto los términos y condiciones establecidos en el presente documento, los cuales he entendido y aceptado voluntariamente.
+                                                            </p>
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title white-text" id="exampleModalLabel">Normas de Bioseguridad Entreno</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <p class="white-text txt-condiciones" style="text-align: justify;">
+                                                                
+                                                            Los corredores no deben compartir los elementos de bioseguridad y material relacionado con la hidratación, alimentación, implementos deportivos, ni de ninguna otra clase. <br>
+                                                            No podrá ser de la partida ni acercarse a los demás corredores o personal de organización quienes presenten síntomas que los haga sospechosos de estar enfermos de SARS-CoV-2, a saber:
+                                                            </p>
+                                                            <ul class="white-text txt-condiciones">
+                                                                <li>Fiebre (temperatura de 38° Celsius o mayor).</li>
+                                                                <li>Tos seca.</li>
+                                                                <li>Cansancio, molestia o dolor general.</li>
+                                                                <li>Dolor de garganta.</li>
+                                                                <li>Dolor de cabeza.</li>
+                                                                <li>Diarrea.</li>
+                                                                <li>Conjuntivitis.</li>
+                                                                <li>Pérdida del sentido del olfato o del gusto.</li>
+                                                                <li>Erupciones cutáneas o pérdida del color en los dedos de las manos o de los pies.</li>
+                                                            </ul>
+                                                            <p class="white-text txt-condiciones" style="text-align: justify;">
+                                                            Los corredores deberán usar adecuadamente tapabocas (no se admiten pañoletas u otros materiales que no sean para el uso específico de la contención de la pandemia) dentro y en inmediaciones de las zonas del entreno.<br>
+                                                            Los corredores deberán usar tapabocas al momento y desde y hasta diez metros antes y después, respectivamente, de adelantar a otro corredor en la ruta, lo cual sólo podrá hacer en tramos que permitan un prudente distanciamiento. El corredor que sienta o sea advertido por otro que va a ser adelantado también deberá usar tapabocas.<br>
+                                                            Los corredores deberán usar tapabocas desde 300 metros antes de llegar a la meta.<br>
+                                                            Los corredores están obligados a seguir las recomendaciones de bioseguridad que imparta el personal del entreno antes, durante y después del entreno, incluido el paso por los puntos de hidratación o alimentación que se establezcan.
+
+                                                            </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a  class="btn btn-outline-success hoverable waves-light mt-5 role=" data-dismiss="modal">
+                                                                Cerrar</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </blockquote>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="terminoCondiciones"
+                                                name="terminoCondiciones">
+                                            <label class="custom-control-label white-text" for="terminoCondiciones">Acepto los
+                                                terminos y condiciones.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Grid row -->
+        
+                                <a onclick="validar()" class="btn btn-theme btn-outline-white hoverable waves-light mt-5 role="
+                                    button">
+                                    <i class="fas fa-user-plus mr-2"></i>Registrarse</a>
+                            </form>
+                            {% else %}
+
+                            <div class="text-center">
+                                <h3 class="white-text"><i class="fas fa-exclamation-circle mr-2"></i>Inscripciones Agotadas!
+                                </h3>
+                                <hr class="hr-light">
+                                <div>
+                                    <h6 class="white-text text-left">Lo sentimos, las inscripciones al entreno se han acabado, pero puedes registrarte en nuestros próximos eventos:
+                                    </h6>
+                                    <div class="text-left">
+                                        <ul>
+                                            <li class="white-text">
+                                                <h6 align="left"><i class="fas fa-mountain mr-2"></i><strong><a class="white-text" href="/informacion">Km Vertical</a></strong></h6>
+                                            </li>
+                                            <li class="white-text">
+                                                <h6 align="left"><i class="fas fa-flag mr-2"></i><strong><a class="white-text" href="/informacion">Carrera</a></strong></h6>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Grid row-->
+        
+        </section>
+            <!-- /.Products Grid -->
+        </div>
+        <!-- /.Content -->
+
+        <div class="mt-5  text-center text-md-left  col-md-6 col-xl-5 offset-xl-1">
+         
+            <div class="card mb-4 z-depth-5 hoverable mt-5">
+                <div class="card-body">
+                  
+                    <div>
+                        <h6 class="white-text">Terminar su inscripción a Valhalla Series: Entreno Nocturno es muy fácil, y cuentas con las siguientes opciones:</h6>
+                    </div>
+                    <div class="text-left">
+                    <ul>
+                        <li class="white-text">
+                            <h6 align="left"><strong>Tranferencia Bancaria</strong></h6>
+                            <ul>
+                                <li type="circle">
+                                    <p style="font-size:14px;" align="left">Consigne o transfiera la suma de <strong><span class="resaltar">25.000 COP</span></strong> a la Cuenta de ahorros <span class="resaltar">Bancolombia</span> #<span class="resaltar">912-112996-87</span>, a nombre de <span class="resaltar">Carlos Rubio</span>.</p>
+                                </li>
+                    
+                                <li type="circle">
+                                    <p  style="font-size:14px;"align="left">Por último, envia un mensaje al número <span class="resaltar">+57 315 7873181</span> con el comprobante de pago, tu nombre y número de identificación para confirmar tu transacción y activar tu inscripción.</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="white-text">
+                            <h6 align="left" > <strong>Pago Presencial</strong></h6>
+                            <ul>
+                                <li><p style="font-size:14px;"  align="left">Comunicate al número de celular <span class="resaltar">+57 318 4903572</span> o <span class="resaltar">+57 315 8293271</span> y acuerda un encuentro para terminar tu proceso de inscripción.</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+<!-- /.Main Container -->
+</section>
+</main>
+{% include "layout/js.html" %}
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/select2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/i18n/es.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/bootstrap-material-datetimepicker.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript">
+
+
+
+    $('#tipoIdentificacion').select2({
+        placeholder: "Seleccione una",
+        theme: "material",
+        language: "es"
+    });
+    
+   
+  
+    $(".select2-selection__arrow")
+        .addClass("fas fa-chevron-down white-text");
+ 
+ 
+function validar(){
+  if($("#register_form").validate({
+    lang: 'es',
+    errorPlacement: function(error, element){
+      $(element).parent().after(error);
+		}})){        
+    
+if(true){
+
+    if($("#terminoCondiciones").prop("checked") == true){
+        console.log("lo")
+        $("#register_form").submit();
+   
+}else{
+    swal({
+  //position: 'top-end',
+  type: 'warning',
+  title: 'Acepte los terminos',
+  showConfirmButton: false,
+  toast: true,
+  animation: false,
+  customClass: 'animated shake',
+  timer: 3000
+}) 
+}
+}
+
+  }
+  }
+
+</script>
+{% include "layout/footer.html" %}

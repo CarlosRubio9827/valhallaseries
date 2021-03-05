@@ -1,0 +1,116 @@
+
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(233,161,2, 0.5); }
+
+.top-nav-collapse {
+  background-color: rgb(233,161,2); }
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: rgb(233,161,2); } 
+  }
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: rgba(233,161,2); }
+
+#time-counter {
+  font-size: 5rem; }
+ 
+    
+
+    @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: rgba(1, 153, 52, 0.5)!important;
+            }
+        }
+
+.rgba-gradient {
+  background: rgb(233, 160, 2);
+   /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgb(233, 161, 2), rgba(233, 160, 2, 0.5));
+          /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgb(233, 161, 2), rgba(233, 160, 2, 0.2));
+          /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+section .pt-4{
+  padding-top: 3.5rem!important;
+}
+.logo-img{
+  height: 60px;
+}
+.center-div{
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 90%;
+  padding: 3%;
+}
+
+.center-div-link{
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 90%;
+  padding: 3%;
+}
+
+
+
+.text-intro{
+  font-weight: 300 !important;
+}
+
+.btn-circle.btn-outline-success,
+.btn-circle.btn-outline-default,
+.btn-circle.btn-outline-primary,
+.btn-circle.btn-outline-secondary,
+.btn-circle.btn-outline-warning,
+.btn-circle.btn-outline-danger,
+.btn-circle.btn-outline-info {
+  margin-top: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.nav_formu{
+  width:0px!important;
+}
+.content-div{
+  width:90vw!important;
+}
+
+.btn-theme{
+  background-color: rgba(0,0,0,0.3) !important;
+}
+.btn-theme:hover{
+  background-color: rgba(29, 125, 173,0.2) !important;
+}
+.tr-theme{
+  background-color: rgba(0,0,0,0.2) !important;
+}
+.tr-theme:hover{
+  background-color: rgba(29, 125, 173,0.2) !important;
+}
+
+
+.nav-item.active{
+  background-color: rgba(9, 71, 102, 0.4) !important;
+}
+
+.modal-content{
+  background-color: rgba(0,0,0,0.9)!important;
+}

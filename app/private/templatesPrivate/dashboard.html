@@ -1,0 +1,148 @@
+{% set titulo ='Dashboard - Valhallas Series' %} {% include "layout/header.html"
+%}
+
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/guest/auth/style.css')}}"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/addons/select2.css')}}"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/addons/bootstrap-material-datetimepicker.css')}}"
+  type="text/css"
+/>
+
+<style type="text/css">
+  /* body {
+    background: url("{{url_for('static', filename='img/guest/register/background.jpg')}}")repeat center center fixed;
+    background-size: cover;
+} */
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  input,
+  .md-form > small,
+  .select2-selection__rendered {
+    color: white !important;
+  }
+</style>
+{% include "layout/cssAdmin.html" %}
+<main>
+  <section class="view intro-2">
+    <div class="mask pattern-0 flex-center"></div>
+    <!-- Main Container -->
+    <div class="container mt-5 pt-3">
+      <div class="row">
+        <!-- Content -->
+        <div class="col-md-4 mb-4">
+          <!-- Products Grid -->
+          <section class="section pt-4">
+            <!-- Grid row -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card z-depth-5 hoverable">
+                  <div class="card-body">
+                    <!--Header-->
+                    <div class="text-center">
+                      <h3 class="white-text">
+                        <i class="fas fa-running mr-2"></i><strong>Entreno</strong>
+                      </h3>
+                      <hr class="hr-light" />
+
+                      <a href="/loginAdmin/entreno" class="btn border border-light rounded hoverable waves-light"><i class="fas fa-plus left mr-2"></i>Ver Más</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Grid row-->
+          </section>
+          <!-- /.Products Grid -->
+        </div>
+        <!-- /.Content -->
+        <div class="col-md-4 mb-4">
+            <!-- Products Grid -->
+            <section class="section pt-4">
+              <!-- Grid row -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="card z-depth-5 hoverable">
+                    <div class="card-body">
+                      <!--Header-->
+                      <div class="text-center">
+                        <h3 class="white-text">
+                            <i class="fas fa-mountain mr-2"></i><strong>Km Vertical</strong>
+                        </h3>
+                        <hr class="hr-light" />
+                        
+                      <a href="/loginAdmin/kmvertical" class="btn border border-light rounded hoverable waves-light"><i class="fas fa-plus left mr-2"></i>Ver Más</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Grid row-->
+            </section>
+            <!-- /.Products Grid -->
+          </div>
+          <!-- /.Content -->
+          <div class="col-md-4 mb-4">
+            <!-- Products Grid -->
+            <section class="section pt-4">
+              <!-- Grid row -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="card z-depth-5 hoverable">
+                    <div class="card-body">
+                      <!--Header-->
+                      <div class="text-center">
+                        <h3 class="white-text">
+                            <i class="fas fa-flag mr-2"></i> <strong>Carrera</strong>
+                        </h3>
+                        <hr class="hr-light" />
+                        
+                      <a href="/loginAdmin/carrera" class="btn border border-light rounded hoverable waves-light"><i class="fas fa-plus left mr-2"></i>Ver Más</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Grid row-->
+            </section>
+            <!-- /.Products Grid -->
+          </div>
+          <!-- /.Content -->
+      </div>
+    </div>
+    <!-- /.Main Container -->
+  </section>
+</main>
+{% include "layout/js.html" %}
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/addons/select2.min.js')}}"
+></script>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/addons/i18n/es.js')}}"
+></script>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/addons/bootstrap-material-datetimepicker.js')}}"
+></script>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"
+></script>
+<script
+  type="text/javascript"
+  src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"
+></script>
+ 
+{% include "layout/footer.html" %}

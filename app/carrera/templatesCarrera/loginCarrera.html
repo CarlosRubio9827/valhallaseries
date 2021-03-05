@@ -1,0 +1,103 @@
+
+{% set titulo= 'Login - Valhallas Series - Carrera' %}
+{% include "layout/header.html" %} 
+
+  
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<style type="text/css">
+body {
+    background: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")repeat-y center center fixed;    
+    /* background-size: cover; */
+}
+/* .center-div-link{ 
+    background-color: rgba(0, 0, 0, 0.5) !important;
+} */
+
+</style>
+
+{% include "layout/cssCarrera.html" %} 
+<!--Intro Section-->
+<section class="view intro-2">
+        <div class="mask pattern-0 flex-center"></div>
+                <div class="full-bg-img">
+                    <div class="container flex-center">
+                        <div class="d-flex align-items-center content-height">
+                            <div class="row flex-center pt-5 mt-3">
+                     
+                                <div class="col-md-6 mb-5">
+                                    <!--Form-->
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <!--Header-->
+                                            <div class="text-center">
+                                                <h3 class="white-text"><i class="fas fa-user-check mr-2"></i>Consulta tu estado</h3>
+                                                <hr class="hr-light">
+                                            </div> 
+                                            <form id="login_form" method="POST" action="/carrera/login">
+                                            <input type="hidden" required value="login" name="method">
+                                            <div class="md-form">
+                                                <i class="far fa-envelope prefix white-text"></i>
+                                                <input id="email" type="email" class="form-control validate white-text" name="email" required autofocus maxlength="100">
+                                                <label for="email" data-error="Error" data-success="Correcto">Email <span class="obligatorio">*</span></label>  
+                                            </div>
+                             
+
+                                            <div class="md-form">
+                                                <i class="fas fa-id-card prefix white-text"></i>
+                                                <input id="numeroIdentificacion" type="number" class="form-control validate white-text" name="numeroIdentificacion" required>
+                                                <label for="numeroIdentificacion" data-error="Error" data-success="Correcto">Número identificación <span class="obligatorio">*</span></label>
+                                            </div>
+                     
+                                            <div class="text-center mt-4">
+                                                <a onclick="validar()" class="btn btn-theme btn-outline-white hoverable waves-light" role="button">
+                                                    <i class="fas fa-door-closed mr-2"></i>Consulta tu estado</a>
+                                                    <!--a class="btn waves-light white-text" role="button">
+                                                    <i class="fas fa-key mr-2"></i>¿Olvido la contraseña?</a-->
+                                            </div>
+                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--/.Form-->
+                                    
+                                </div>
+                                <div class="col-md-6 mb-5">
+                                    <!--Form-->
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <!--Header-->
+                                            <div class="white-text">
+                                                <h1 class="h1-responsive font-weight-bold">¡Regístrate ahora! </h1>
+                                                <hr class="hr-light">
+                                                <h6 class="text-intro">¿Aún no te has registrado?, regístrate en simples pasos para que no te pierdas esta espectacular carrera.</h6>
+                                                <br>
+                                                <a href="/carrera/registro" class="btn-theme btn btn-outline-white hoverable waves-light"><i class="fas fa-user-plus mr-2"></i>Registrarse</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% include "layout/js.html" %}
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+<script type="text/javascript">
+
+function validar(){
+  if($("#login_form").validate({
+    lang: 'es',
+    errorPlacement: function(error, element){
+      $(element).parent().after(error);
+		}})){
+    $("#login_form").submit();
+  }
+  }
+
+</script>
+
+{% include "layout/footer.html" %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valhalla Series - Lista participantes entreno  total - {{fecha[2]}}-{{fecha[1]}}-{{fecha[0]}}  {{fecha[3]}}:{{fecha[4]}}:{{fecha[5]}}</title>
+
+
+
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <h3>Valhalla Series - Datos Generados el {{fecha[2]}}-{{fecha[1]}}-{{fecha[0]}} a las {{fecha[3]}}:{{fecha[4]}}:{{fecha[5]}} horas</h3>
+    </div>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Nombre Completo</th>
+                <th>Correo</th>
+                <th># Teléfono</th>
+                <th>Estado Insc.</th>
+                <th>Fecha Reg.</th>
+            </tr>
+        </thead>
+
+        <tbody style=" text-align: left;background-color: rgba(0,0,0,0.05)!important;">
+
+            {% for usuario in usuarios %}
+            <tr >
+                <td>{{usuario.1}} {{usuario.2}}</td>
+                <td>{{usuario.3}}</td>
+                <td>{{usuario.4}}</td>
+                <td>{{usuario.6|upper}}</td>
+                <td>{{usuario.5}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+</body>
+</html>
