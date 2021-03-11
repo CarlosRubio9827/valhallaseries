@@ -76,6 +76,11 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) { overflow-y: v
   border-color: #3a4d56;
 }
 */
+.patrocinadores{
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(233,161,2,1) 100%);
+  padding-top: 40px;
+}
 .fc-header-toolbar > div > div.btn-group > button.btn-primary,
 .fc-header-toolbar > div > button.btn-primary{
   background-color: #3a4d56 !important;

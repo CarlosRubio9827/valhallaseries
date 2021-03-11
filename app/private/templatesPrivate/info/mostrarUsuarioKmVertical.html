@@ -1,0 +1,206 @@
+{% set titulo ='Valhallas Series - Información Usuario' %}
+{% include "layout/header.html" %}
+
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/style.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/guest/auth/login_style.css')}}" type="text/css">
+<style type="text/css">
+body {
+    background: url("{{url_for('static', filename='img/guest/home/valhallaFondoCard.svg')}}")repeat-y center center fixed;
+}
+ 
+
+</style>
+
+{% include "layout/cssAdmin.html" %} 
+</head>  
+<body>
+
+
+<section class="section pt-4">
+        <div class="mask pattern-0 flex-center"></div>
+                <div class="full-bg-img">
+                    <div class="container flex-center">
+                        <div class="d-flex align-items-center content-height">
+                            <div class="row flex-center pt-5 mt-3">
+                                                   <!--Datos personales--> 
+                                <div class="col-12 mb-5 content-div">
+                                    <!--Form-->
+                                    <div class="card z-depth-5 hoverable">
+                                        <div class="card-body">
+                                            <!--Header-->
+                                            <div class="row">
+
+                                                <div class="col-md-3 col-sm-3 col-3 col-xs-3">
+                                                    <a href="/loginAdmin/kmvertical" class="nav-link border border-light rounded hoverable waves-light white-text"><i class="fas fa-arrow-left mr-2"></i>Regresar</a>
+                                                  </div>
+                                                <div class="col-md-9 col-sm-9 col-9 col-xs-9">
+                                                    <h4 class="white-text"><i class="fas fa-user-circle"></i>
+                                                    Datos Personales de {{usuariokm[1]}} {{usuariokm[2]}}
+                                                     </h4>
+                                                </div>
+                                            </div>
+                                            
+                                                <!--hr class="hr-light"-->
+                                                 
+                                                <div style=" text-align: center; background-color: rgba(255,255,255,0)!important;">
+                                                    <table  class="table table-sm table-hover" >
+                                                            <thead>
+                                                                
+                                                            </thead>
+                                                            <tbody style=" text-align: left;background-color: rgba(0,0,0,0.05)!important;">
+                                                            <tr class="hoverable tr-theme">
+                                                                <th scope="row"><strong>Estado Inscripción </strong></th>
+                                                                <td>
+                                                                
+                                                        {% if usuariokm[17] == "Pendiente de Pago" %}
+                                                                
+                                                                  <h4><span class="badge badge-warning hoverable">
+                                                                  <i class="fas fa-hand-holding-usd mr-1"></i> Pendiente de Pago
+                                                                </span></h4>
+                                                                
+
+                                                        {% else %}
+                                                      <h4><span class="badge badge-success hoverable">
+                                                      <i class="fas fa-flag-checkered mr-1"></i> Inscrito
+                                                                </span></h4>
+                                                            
+                                                          
+                                                        {% endif %}
+                                                                </td>
+                                                                </tr> 
+                                                            
+                                                                <!-- Estado Kit -->
+
+                                                                <!-- <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Estado de Kit </strong></th>
+                                                                    <td>
+                                                                
+                                                                        {% if usuariokm[20] == "Sin entregar" %}
+                                                                        
+                                                                        <h4><span class="badge badge-warning hoverable">
+                                                                                <i class="fas fa-user-times"></i> Sin entregar
+                                                                            </span></h4>
+                                                                
+                                                                
+                                                                        {% else %}
+                                                                        <h4><span class="badge badge-success hoverable">
+                                                                                <i class="fas fa-tshirt mr-2"></i> Entregado
+                                                                            </span></h4>
+                                                                
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr> -->
+                                                                <!-- Fin Estado Kit -->
+                                                            
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Distancia</strong></th>
+                                                                    <td>5 Km</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Valor a Pagar</strong></th>
+                                                                    <td>{{ usuario[3]}} COP</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Nombre Completo</strong></th>
+                                                                    <td>{{ usuariokm[1]|upper }} {{usuariokm[2]|upper}}</td>
+                                                                </tr>
+                                                                <!-- <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Equipo</strong></th>
+                                                                    <td>{{usuariokm[21]|upper}}</td>
+                                                                </tr> -->
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Correo Electrónico</strong></th>
+                                                                    <td>{{usuariokm[5]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Doc. Identidad</strong></th>
+                                                                    <td>{{usuariokm[6]}} - {{usuariokm[7]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Número Teléfono</strong></th>
+                                                                    <td>{{usuariokm[10]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Fecha de Nacimiento</strong></th>
+                                                                    <td>{{usuariokm[8]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Sexo</strong></th>
+                                                                    <td>{{usuariokm[9]}} </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Tipo de Sangre</strong></th>
+                                                                    <td>{{usuariokm[12]}}</td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Entidad Médica</strong></th>
+                                                                    <td>{{usuariokm[13]}}</td>
+                                                                </tr>
+                                                                <!-- <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Talla Camisa</strong></th>
+                                                                    <td>
+                                                                        <h5><span class="badge badge-primary hoverable">{{usuariokm[16] | upper}}</span></h5>
+                                                                    </td>
+                                                                </tr> -->
+                                                                <!-- <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>País</strong></th>
+                                                                    <td>
+                                                                        {{usuariokm[11] | upper}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Departamento</strong></th>
+                                                                    <td>
+                                                                        {{usuariokm[12] | upper}}
+                                                                    </td>
+                                                                </tr> -->
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Ciudad</strong></th>
+                                                                    <td>
+                                                                        {{usuariokm[11] | upper}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="hoverable tr-theme">
+                                                                    <th scope="row"><strong>Contacto de emergencia</strong></th>
+                                                                    <td>
+                                                                        {% if usuariokm[15] == "" %}
+                                                                            No se registró
+                                                                        {% else %}
+                                                                            {{usuariokm[15]}} {{usuariokm[16]}}
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <!--
+                                                        <a href="../../controllers/exit.php" class="btn btn-theme btn-outline-white hoverable waves-light waves-effect"><i class="fas fa-door-closed mr-2"></i>Regresar a la Página Principal</a>
+                                                        -->
+                                                        
+                                                </div>
+                                                
+                                                </div>
+   
+                                        </div>
+                                    </div>
+                                    <!--/.Form-->
+                                  
+                                </div>
+
+                                <!--Fin datos Persoanles-->
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% include "layout/js.html" %}
+
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/jquery.validate.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/addons/validation/messages_es.js')}}"></script>
+ 
+
+{% include "layout/footer.html" %}
+

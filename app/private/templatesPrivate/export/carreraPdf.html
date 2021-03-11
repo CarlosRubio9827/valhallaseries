@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valhalla Series - Lista Carrera - {{fecha[2]}}-{{fecha[1]}}-{{fecha[0]}}  {{fecha[3]}}:{{fecha[4]}}:{{fecha[5]}}</title>
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <h3>Valhalla Series - Datos Generados el {{fecha[2]}}-{{fecha[1]}}-{{fecha[0]}} a las {{fecha[3]}}:{{fecha[4]}}:{{fecha[5]}} horas</h3>
+    </div>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Núm. Id</th>
+                <th>Nombre Completo</th>
+                <th>Categoría</th>
+                <th>Fecha Nacimiento</th>
+                <th>Email</th>
+                <th>Equipo</th>
+                <th>Distancia</th>
+                <th>Sexo</th>
+                <th>Telefono</th>
+                <th>País</th>
+                <th>Departamento</th>
+                <th>Ciudad</th>
+                <th>Tipo Sangre</th>
+                <th>Entidad Salud</th>
+                <th>Talla Camisa</th>
+                <th>Estado Insc</th>
+                <th>Estado Kit</th>
+                <th>Fecha Insc.</th>
+            </tr>
+        </thead>
+
+        <tbody style=" text-align: left;background-color: rgba(0,0,0,0.05)!important;">
+
+            {% for usuario in usuarios %}
+            <tr >
+                <td>{{usuario.7}}</td>
+                <td>{{usuario.1}} {{usuario.2}}</td>
+                <td>{{usuario.4}}</td>
+                <td>{{usuario.8}}</td>
+                <td>{{usuario.5}}</td>
+                <td>{{usuario.21|upper}}</td>
+                <td>{{usuario.3}}</td>
+                <td>{{usuario.9}}</td>
+                <td>{{usuario.10}}</td>
+                <td>{{usuario.11}}</td>
+                <td>{{usuario.12}}</td>
+                <td>{{usuario.13}}</td>
+                <td>{{usuario.14}}</td>
+                <td>{{usuario.15}}</td>
+                <td>{{usuario.16}}</td>
+                <td>{{usuario.19}}</td>
+                <td>{{usuario.20}}</td>
+                <td>{{usuario.22}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+</body>
+</html>

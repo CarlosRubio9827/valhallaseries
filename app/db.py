@@ -1,5 +1,4 @@
 from flask_mysqldb import MySQL
-import MySQLdb.cursors
 from . import app
 
 app.config["MYSQL_HOST"] = "localhost"

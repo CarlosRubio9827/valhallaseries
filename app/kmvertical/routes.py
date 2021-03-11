@@ -42,7 +42,7 @@ def kmverticalLogin():
 
       #Tipo Identificación
       tipoIdentificacion = usuario[6]
-      cur.execute("SELECT * FROM tipoIdentificacion WHERE idtipoIdentificacion = (%s)", [tipoIdentificacion])
+      cur.execute("SELECT * FROM tipoidentificacion WHERE idtipoIdentificacion = (%s)", [tipoIdentificacion])
       tipoIdentificacion = cur.fetchone()
       tipoIdentificacion = tipoIdentificacion[1]
       usuario[6] = tipoIdentificacion
@@ -135,7 +135,7 @@ def kmverticalLoginPost():
 
       #Tipo Identificación
       tipoIdentificacion = usuario[6]
-      cur.execute("SELECT * FROM tipoIdentificacion WHERE idtipoIdentificacion = (%s)", [tipoIdentificacion])
+      cur.execute("SELECT * FROM tipoidentificacion WHERE idtipoIdentificacion = (%s)", [tipoIdentificacion])
       tipoIdentificacion = cur.fetchone()
       tipoIdentificacion = tipoIdentificacion[1]
       usuario[6] = tipoIdentificacion
@@ -282,7 +282,7 @@ def kmverticalRegistroPost():
     
     #Tipo Identificación
     tipoIdentificacion = request.form['tipoIdentificacion']
-    cur.execute("SELECT * FROM tipoIdentificacion WHERE inicialesTipoIdentificacion = (%s)", [tipoIdentificacion])
+    cur.execute("SELECT * FROM tipoidentificacion WHERE inicialesTipoIdentificacion = (%s)", [tipoIdentificacion])
     tipoIdentificacion = cur.fetchone()
     tipoIdentificacion = tipoIdentificacion[0]
 
